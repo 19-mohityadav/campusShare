@@ -1,35 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Search, Bell, UserCircle } from 'lucide-react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-900 shadow-xl shadow-zinc-950/20">
-      <div className="flex items-center gap-4">
-        <Link to="/dashboard" className="text-xl font-bold font-mono tracking-tighter text-indigo-400">
-          CS_
-        </Link>
-        <div className="relative group min-w-[320px]">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500 transition-colors group-focus-within:text-zinc-200" />
-          <input 
-            type="text" 
-            placeholder="Search items, categories, or keywords..." 
-            className="w-full pl-10 pr-4 py-2 bg-zinc-900 border border-zinc-800 rounded-lg text-sm transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500/10 focus:border-zinc-700"
-          />
-        </div>
-      </div>
-      
-      <div className="flex items-center gap-4">
-        <button className="p-2 text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900 rounded-full transition-all">
-          <Bell className="w-5 h-5" />
-        </button>
-        <Link to="/profile" className="flex items-center gap-2 p-1 pl-3 bg-zinc-900 border border-zinc-800 rounded-full hover:border-zinc-700 transition-all">
-          <span className="text-xs font-medium text-zinc-300">My Profile</span>
-          <UserCircle className="w-8 h-8 text-indigo-500" />
-        </Link>
-      </div>
-    </nav>
-  )
-}
+    return (
+        <header className="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl">
+            <nav className="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+                <div className="flex items-center gap-2">
+                    <span className="text-2xl font-headline font-bold tracking-tighter text-primary">CampusShare</span>
+                </div>
+                <div className="hidden md:flex items-center gap-8">
+                    <a className="text-primary font-bold border-b-2 border-primary pb-1 font-body text-sm" href="#features">Features</a>
+                    <a className="text-on-surface-variant/80 hover:text-primary transition-colors font-body text-sm" href="#">How it Works</a>
+                    <a className="text-on-surface-variant/80 hover:text-primary transition-colors font-body text-sm" href="#">Community</a>
+                </div>
+                <div className="flex items-center gap-6">
+                    <Link to="/login" className="text-on-surface-variant/80 hover:text-primary transition-colors font-body font-medium text-sm">Login</Link>
+                    <Link to="/signup" className="bg-gradient-to-r from-primary to-secondary text-on-primary font-bold px-6 py-2 rounded-full hover:scale-105 transition-all duration-300 text-sm glow-button">Signup</Link>
+                </div>
+            </nav>
+        </header>
+    );
+};
 
-export default Navbar
+export default Navbar;
